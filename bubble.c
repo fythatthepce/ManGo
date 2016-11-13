@@ -1,7 +1,3 @@
-/*
-Exam Data Structure and Algorithm #3 Part 1 of 2
-by Touch 2D
-*/
 
 #include <stdio.h>
 #include <stdbool.h>
