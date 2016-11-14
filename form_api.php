@@ -1,4 +1,4 @@
-<?
+<?php
     $data = array('username'=>'Mango','password'=>'mango','account_number'=>'9176914644');
     $data_json = json_encode($data);
 
