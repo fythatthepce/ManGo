@@ -1,5 +1,5 @@
 <?
-    $data = array('username'=>'Mango','password'=>'mango');
+    $data = array('username'=>'Mango','password'=>'mango','account_number'=>'9176914644');
     $data_json = json_encode($data);
 
     $url = "http://bank.route.in.th:9999/api/transferbussiness";
