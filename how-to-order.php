@@ -12,7 +12,7 @@
   <style>
         @import "loginwindowcss.css";
   </style>
-  
+
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */
     .navbar {
@@ -70,7 +70,7 @@
 
 <div class="container">
   <div class="panel panel-default">
-    <div class="panel-body"><h3 style="color:blue;">วิธีการสั่งซื้อสินค้า</h3></div>
+    <div class="panel-body"><h3 style="color:black;">วิธีการสั่งซื้อสินค้า</h3></div>
   </div>
 </div>
 
@@ -132,7 +132,7 @@
 </div><br><br>
 
    <div class="container">
-  <div class="well" ><h3 style="color:blue;">วิธีการชำระเงิน</h3></div>
+  <div class="well" ><h3 style="color:black;">วิธีการชำระเงิน</h3></div>
   <p>&nbsp;&nbsp;&nbsp;&nbsp;ชำระเงินผ่านธนาคาร เรามีหลายธนาคารให้เลือก เพื่ออำนวยความสะดวกให้กับลูกค้า</p>
 </div>
 

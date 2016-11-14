@@ -43,7 +43,7 @@
 
 
 <!--- end php -->
-  <br><br>
+
   <div class="jumbotron" style="text-align: center">
       <h1 style="text-align: center"><font size="7">ลืมรหัสผ่าน</font></h1>
   </div>

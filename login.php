@@ -52,7 +52,7 @@ ob_start();
     ?>
     <!-- end bar top-->
 
-        <br><br>
+        
         <div class="jumbotron" style="text-align: center">
           <h1 style="text-align: center"><font size="6">SIGN IN | ManGO store</font></h1>
         </div>

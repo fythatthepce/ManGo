@@ -13,7 +13,7 @@ include "check-login.php";
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-	@import "global-order.css";
+	@import "global-order2.css";
 
 	table {
 		width: auto;

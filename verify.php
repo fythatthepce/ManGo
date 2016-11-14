@@ -39,8 +39,7 @@
 </head>
 
 <body>
-  <br>
-  <br>
+
   <!---- php ----->
   <?php
   if($_POST) {
@@ -172,7 +171,7 @@
         </div>
     </div>
 
-    <hr>
+
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -195,6 +194,10 @@
     <?php
         include "loginwindow.php"
      ?>
+
+     <?php
+         include "foot.php";
+      ?>
 
 </body>
 

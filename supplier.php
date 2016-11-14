@@ -12,7 +12,7 @@ include "check-login.php";
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
-	@import "global-order.css";
+	@import "global-order2.css";
 
 	table {
 		width: auto;

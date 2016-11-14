@@ -340,9 +340,10 @@ if(!$_POST || $err != "") {
 <div class="jumbotron" style="text-align: center">
       <h1 style="text-align: center"><font size="7">ประวัติการสั่งซื้อ</font></h1>
 </div>
+<br><br><br>
 <div id="container">
 <center>
-<div id="content">
+<div>
 
 
 
@@ -368,22 +369,11 @@ if(!$_POST || $err != "") {
 }
 ?>
 
-</div><br><br><br><br>
-<div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
 
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
 </center>
 </div>
 
+<br><br>
 <!--footer-->
 <?php
     include "foot.php";

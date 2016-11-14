@@ -21,7 +21,7 @@ if(!$_POST) {
 
 	body {
 		margin: 0px;
-		background: black fixed;
+
 	}
 
 	form {
@@ -126,7 +126,7 @@ $(function() {
 <?php	include "topbar_ordercart.php"; ?>
 <div id="container">
 
-<h1 style="text-align: center;"><img src="images/basket-icon.png" class="logo2" style="width:70px;height:70px"><b><c  style="color:white;"> Your Bucket</c></b></h1>
+<h1 style="text-align: center;"><img src="images/basket-icon.png" class="logo2" style="width:70px;height:70px"><b><c  style="color:black;"> Your Bucket</c></b></h1>
 
 <br>
 	<div class="progress">

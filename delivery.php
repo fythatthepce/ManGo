@@ -16,7 +16,7 @@ ob_start();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
-<style>@import "global-order.css";</style>
+<style>@import "global-order2.css";</style>
 
   <style>
       .jumbotron {

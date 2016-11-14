@@ -914,7 +914,7 @@ $(document).ready(function () {
   </td>
   </tr>
   <tr>
-    <br><br><br><br>
+    <br><br><br>
     <?php include "foot.php" ?>
 </table>
    <div id="dialog"></div>

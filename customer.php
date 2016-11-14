@@ -14,7 +14,7 @@ include "check-login.php";
 
 <link rel="shortcut icon" href="mangog.png">
 <style>
-	@import "global.css";
+	@import "global-order2.css";
 	caption {
 		text-align: left;
 		padding-bottom: 3px;
@@ -126,7 +126,9 @@ if($total == 0) {
 ?>
 <table>
 <caption>
-	<?php 	echo "ลูกค้าลำดับที่  $first - $last จากทั้งหมด $total"; ?>
+  <p style="color:black;">
+  	<?php 	echo "ลูกค้าลำดับที่  $first - $last จากทั้งหมด $total"; ?>
+  </p>
 
 </caption>
 <tr><th>ลำดับ</th><th>ชื่อลูกค้า</th><th>ที่อยู่</th><th>โทร</th><th>อีเมล</th><th>คำสั่ง</th></tr>
