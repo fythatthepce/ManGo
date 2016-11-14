@@ -42,7 +42,7 @@ if($_POST) {
 <img src="images/admin.png"><br>
 <div class="warn"><?php echo $msg; ?></div>
 <form method="post">
-<input type="text" name="pwd" placeholder="Password" required>
+<input type="password" name="pwd" placeholder="Password" required>
 
 <button type="submit">เข้าสู่ระบบ</button>
 </form>

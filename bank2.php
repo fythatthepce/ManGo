@@ -1,24 +1,23 @@
 <?php
-    $url = "http://mango.servehttp.com:8080/page2.php";
-    function fakeip()
-    {
-    return long2ip( mt_rand(0, 65537) * mt_rand(0, 65535) );
-    }
-    function getdata($url,$args=false)
-    {
-    global $session;
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,$url);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array("REMOTE_ADDR: ".fakeip(),"X-Client-IP: ".fakeip(),"Client-IP: ".fakeip(),"HTTP_X_FORWARDED_FOR: ".fakeip(),"X-Forwarded-For: ".fakeip()));
-    if($args)
-    {
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS,$args);
-    }
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    //curl_setopt($ch, CURLOPT_PROXY, "127.0.0.1:8888");
-    $result = curl_exec ($ch);
-    curl_close ($ch);
-    return $result;
-    }
+
+
+$url = 'http://161.246.70.75:8080/cesebank/user_login.php'; // กำหนด URl ของเว็บไวต์ B
+$username = 'username=Mango';
+$password = 'password=mango';
+ // กำหนด HTTP Request โดยระบุ username=guest และ password=เguest (รูปแบบเหมือนการส่งค่า $_GET แต่ข้างหน้าข้อความไม่มีเครื่องหมาย ?)
+  
+$ch = curl_init(); // เริ่มต้นใช้งาน cURL
+  
+curl_setopt($ch, CURLOPT_URL, $url); // กำหนดค่า URL
+curl_setopt($ch, CURLOPT_POST, 1); // กำหนดรูปแบบการส่งข้อมูลเป็นแบบ $_POST
+curl_setopt($ch, CURLOPT_POSTFIELDS, $username);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $password); // กำหนดค่า HTTP Request
+curl_setopt($ch, CURLOPT_HEADER, 0); // กำให้ cURL ไม่มีการตั้งค่า Header
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // กำหนดให้ cURL คืนค่าผลลัพท์
+  
+$response = curl_exec($ch); // ประมวลผล cURL
+curl_close($ch); // ปิดการใช้งาน cURL
+  
+echo $response; // แสดงผลการทำงาน
+
 ?>

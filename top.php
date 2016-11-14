@@ -18,7 +18,7 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 16px;
+    padding: 12px;
     text-decoration: none;
 }
 
@@ -55,6 +55,7 @@ li a:link {
 	<li><a href="showimgpay.php">รูปภาพแจ้งการโอนเงิน</a></li>
 	<li><a href="customer.php">ข้อมูลลูกค้า</a></li>
 	<li><a href="delivery.php">ส่งรหัสขนส่งให้ลูกค้า</a></li>
+    <li><a href="Bank_verify.php">เช็คยอดบัญชีธนาคาร</a></li>
 	<li><a href="index2.php">ไปที่ร้านค้า</a></li>
 
 

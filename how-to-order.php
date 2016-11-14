@@ -35,7 +35,7 @@
   <style>
     .jumbotron {
   margin-bottom: 0px;
-  background-image: url(imgBackground/color_diamond-wallpaper-3840x1200.jpg);
+  background-image: url("/images/OrderBar.jpg");
   background-position: 0% 25%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -202,6 +202,13 @@
         <td>ออมทรัพย์</td>
         <td>บริษัทแมงโก้ไทยแลนด์ </td>
       </tr>
+      <tr>
+        <td><img src="/imgBank/CeSeBank.png" style="width:40px;height:35px;">&nbsp;CESE Bank</td>
+        <td>1327100011</td>
+        <td>กรุงเทพ</td>
+        <td>ออมทรัพย์</td>
+        <td>บริษัทแมงโก้ไทยแลนด์ </td>
+      </tr>
     </tbody>
   </table>
 </div>
@@ -210,7 +217,7 @@
 <br>
 <div class="container">
   <p align="right">
-     <a href="order-paid.php"<button type="button" class="btn btn-success btn-lg">ไปหน้าแจ้งชำระเงิน >></button></a>
+     <a href="order-paid.php"><button type="button" class="btn btn-success btn-lg">ไปหน้าแจ้งชำระเงิน >></button></a>
   </p>
 </div>
 
