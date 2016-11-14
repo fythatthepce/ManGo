@@ -1,19 +1,21 @@
 <!doctype html>
 <html>
 <head>
-<link rel="shortcut icon" href="mangog.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<title>ManGo</title>
+<link href="js/jquery-ui.min.css" rel="stylesheet">
+<script src="js/jquery-2.1.1.min.js"> </script>
+<script src="js/jquery-ui.min.js"> </script>
+<script src="js/jquery.form.min.js"> </script>
+<script src="js/jquery.blockUI.js"> </script>
+<title>Online Store</title>
 <style>
-  @import "global-order.css";
 	body {
 		margin: 0px;
-		background: "white" fixed;
+		background: url(images/bg2.jpg) fixed;
 	}
 	body > * {
 		font-family: tahoma;
@@ -74,9 +76,10 @@
 		background: #555;
 		border-left: solid 1px gray;
 	}
-
-
-
+	#td-content {
+		text-align: center;
+		background: white;
+	}
 	#td-aside-right {
 		background: lavender;
 		border-right: solid 1px gray;
@@ -95,7 +98,12 @@
 	a:hover {
 		color: red;
 	}
-
+	.section-pro {
+		float: left;
+		width: 310px;
+		height: 110px;
+		margin: 1px 3px;
+	}
 	.div-img {
 		float: left;
 		width: 100px;
@@ -281,7 +289,12 @@
 		list-style-position: inside;
 	}
 
-  a.brand {
+
+
+
+
+
+	a.brand {
 		display: block;
 		border-bottom: dotted 1px silver;
 		color: white;
@@ -309,50 +322,32 @@
 		vertical-align: middle;
 		margin-right: 1px;
 	}
-
+	.div-bestseller {
+		width: 96%;
+		border-top: dotted 1px gray;
+		margin: 0px auto;
+		padding: 3px 0xp;
+	}
+	.div-bestseller:last-child {
+		border-bottom: dotted 1px gray;
+	}
+	.img-bestseller {
+		width: 24px;
+		height: 24px;
+		vertical-align: top;
+		margin: 5px;
+		float: left;
+		border-radius: 5px;
+	}
+	.pro-name-bestseller {
+		font-size: 14px;
+	}
 	#out-of-stock {
 		color:red;
 		text-align:center;
 		display: block;
 	}
-
-
-	#td-content {
-		width: 10000px;
-		text-align: center;
-		background: #47C0B0;
-	}
-
-	.section-pro {
-		float: left;
-		width: 350px;
-		height: 180px;
-		margin: 15px 20px;
-		border-style: solid;
-		border-width: 8px;
-		border-color: #F8FE3B;
-		background: lavender;
-	}
-
-  .section-brands{
- 	 width: 250px;
- 	 height: 85px;
- 	 border-style: solid;
- 	 border-width: 8px;
- 	 border-color: #7B0964;
- 	 background: #FAC365;
-	}
-
-
-
 </style>
-
-
-<link href="js/jquery-ui.min.css" rel="stylesheet">
-<script src="js/jquery-2.1.1.min.js"> </script>
-<script src="js/jquery-ui.min.js"> </script>
-<script src="js/jquery.form.min.js"> </script>
-<script src="js/jquery.blockUI.js"> </script>
 
 <script>
 $(function() {
@@ -444,11 +439,16 @@ function cartCount() {  //ฟังก์ชั่นสำหรับอ่า
 	});
 }
 </script>
-
-
 </head>
 
 <body>
+
+
+<br>
+<br>
+<br>
+
+
 
 
 <?php
@@ -459,12 +459,82 @@ ob_start();
 <?php
 include "dblink.php";
 include "topbar.php";
+
+//ตรวจสอบว่าเก็บข้อมูลการเข้าสู่ระบบไว้ในคุกกี้ หรือไม่
+//ถ้ามี ให้กำหนดให้ตัวแปรได้เลย เพื่อให้เทียบเท่ากับการโพสต์ขั้นมาจากฟอร์ม
+if(isset($_COOKIE['email']) && isset($_COOKIE['pswd'])) {
+	$_POST['email'] = $_COOKIE['email'];
+	$_POST['pswd'] = $_COOKIE['pswd'];
+}
+
+if($_POST) {
+	$email = $_POST['email'];
+	$pswd = $_POST['pswd'];
+
+	$sql = "SELECT * FROM customers
+		 		WHERE  email = '$email' AND password = '$pswd'";
+
+	$rs = mysqli_query($link, $sql);
+	$data = mysqli_fetch_array($rs);
+	if(mysqli_num_rows($rs) == 0) {
+		$err  = '<span class="err">ท่านใส่อีเมล<br>หรือรหัสผ่านไม่ถูกต้อง</span>';
+	}
+	else {
+		if(!empty($data['verify'])) {
+			mysqli_close($link);
+			header("location: verify.php");
+			ob_end_flush();
+			exit;
+		}
+
+		if($_POST['save_account']) {
+			$expire = time() + 30*24*60*60;
+			setcookie("email", "$email");
+			setcookie("pswd", "$pswd");
+		}
+
+		 $_SESSION['user'] = $data['firstname'];
+		 $_SESSION['email'] = $data['email'];
+	}
+}
+mysqli_close($link);
 ?>
+<aside>
+	<section id="top">
+<?php
+	 if(!isset($_SESSION['user'])) {
+?>
+    <?php echo $err; ?>
 
 
+
+ <?php
+ 	}
+ 	else {
+?>
+	<fieldset><legend>ท่านเข้าสู่ระบบแล้ว</legend>
+    	<?php echo $_SESSION['user']; ?><br><br>
+    	<a href="logout.php">ออกจากระบบ</a>
+	</fieldset>
+<?php
+	}
+?>
+	</section>
+</aside>
+
+</body>
+</html>
 <?php ob_end_flush(); ?>
 
 
+
+
+
+
+<table id="table-bottom">
+<tr>
+<td id="td-aside-left">
+<span id="cat-name"><img src="images/folder.png"> หมวดหมู่</span>
 <?php
 include "dblink.php";
 include "lib/pagination.php";
@@ -472,13 +542,15 @@ $sql = "SELECT * FROM categories LIMIT 20";
 $r = mysqli_query($link, $sql);
 $self = $_SERVER['PHP_SELF'];
 $h = $self . "?catid=";
-//echo "<a href=\"$h\" class=\"category\"><li>ทั้งหมด</li></a>";
+echo "<a href=\"$h\" class=\"category\"><li>ทั้งหมด</li></a>";
 while($cat = mysqli_fetch_array($r)) {
 	$h = $self . "?catid=" . $cat['cat_id'] . "&catname=" . $cat['cat_name'];
-	//echo "<a href=\"$h\" class=\"category\"><li>". $cat['cat_name'] . "</li></a>";
+	echo "<a href=\"$h\" class=\"category\"><li>". $cat['cat_name'] . "</li></a>";
 }
 ?>
 
+<td id="td-aside-left">
+<span id="bra-name">แบรนด์สินค้า</span>
 <?php
 $sql = "SELECT * FROM brands LIMIT 20";
 $rb = mysqli_query($link, $sql);
@@ -486,8 +558,81 @@ $self2 = $_SERVER['PHP_SELF'];
 $h2 = $self2 . "?braid=";
 while($bra = mysqli_fetch_array($rb)) {
 	$h2 = $self2 . "?braid=" . $bra['bra_id'] . "&braname=" . $bra['bra_name'];
-	//echo "<a href=\"$h2\" class=\"brand\"><li>". $bra['bra_name'] . "</li></a>";
+	echo "<a href=\"$h2\" class=\"brand\"><li>". $bra['bra_name'] . "</li></a>";
 }
+?>
+
+</td>
+<td id="td-content"><br>
+<?php
+$field = "ทั้งหมด";
+$sql = "SELECT *  FROM products ";
+if(isset($_GET['catid']) && !empty($_GET['catid'])) {
+	$cat_id  = $_GET['catid'];
+	$sql .= "WHERE cat_id  = '$cat_id' ";
+	$field = $_GET['catname'];
+}
+
+if(isset($_GET['braid']) && !empty($_GET['braid'])) {
+	$bra_id  = $_GET['braid'];
+	$sql .= "WHERE bra_id  = '$bra_id' ";
+	$field = $_GET['braname'];
+}
+
+$sql .= "ORDER BY pro_id DESC";
+$result = page_query($link, $sql, 10);
+$first = page_start_row();
+$last = page_stop_row();
+$total = page_total_rows();
+if($total == 0) {
+	$first = 0;
+}
+ 	echo "รายการสินค้า: $field  (ลำดับที่  $first - $last จาก $total)";
+?>
+
+
+
+
+
+
+<form method="get">
+<input type="text" name="q" maxlength="30" value="<?php echo stripslashes($_GET['q']); ?>" required>
+<button>ค้นหา</button>
+</form>
+
+
+
+<?php
+include "lib/IMGallery/imgallery-no-jquery.php";
+
+while($pro = mysqli_fetch_array($result)) {
+	 $id =  $pro['pro_id'];
+	 $src = "read-image.php?pro_id=" . $pro['pro_id'];
+	 //$id =  $data['pro_id'];
+	 //$src = "read-image.php?pro_id=" . $data['pro_id'];
+ ?>
+<section class="section-pro">
+	<div class="div-img"><?php gallery_echo_img($src); ?></div>
+    <div class="div-summary">
+    <?php
+		echo "<a href=# class=\"pro-name\" data-id=\"$id\">". $pro['pro_name'] . "</a><br>";
+    	echo mb_substr($pro['detail'], 0, 50, 'utf-8') . "...<br>";
+
+		echo "<a href=# class=\"more-detail\" data-id=\"$id\">รายละเอียด &raquo;</a>";
+		echo  "<span class=\"price\">ราคา: " . number_format($pro['price']) . "</span>";
+	?>
+    </div>
+</section>
+<?php
+}
+?>
+<br class="clear">
+<?php
+	if(page_total() > 1) { 	 //ให้แสดงหมายเลขเพจเฉพาะเมื่อมีมากกว่า 1 เพจ
+		echo '<div id="pagenum">';
+		page_echo_pagenums();
+		echo '</div>';
+	}
 ?>
 
 
@@ -495,27 +640,12 @@ while($bra = mysqli_fetch_array($rb)) {
  //show search result
  include "search.php";
 ?>
-<br>
-<br>
-
-<br class="clear">
-<?php
-	if(page_total() > 2) { 	 //ให้แสดงหมายเลขเพจเฉพาะเมื่อมีมากกว่า 1 เพจ
-		echo '<div id="pagenum">';
-		page_echo_pagenums();
-		echo '</div>';
-	}
-?>
 
 </td>
+
 </tr>
 <tr>
-
-	<!--footer-->
-	<?php
-	    include "foot.php";
-	 ?>
-	<!--end footer-->
+<td colspan="3" id="td-footer">&copy; <?php echo date('Y'); ?> Mango | store TH - <a href="admin_data.php">Administrator</a></td>
 </tr>
 </table>
 <div id="dialog"></div>

@@ -7,7 +7,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #333333;
 }
 
 li {
@@ -18,19 +18,34 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 8px 8px;
+    padding: 16px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: #111;
+    background-color: #111111;
+    text-decoration: none;
+    color:white;
 }
+li a:active {
+    text-decoration: none;
+    color:white;
+}
+li a:visited {
+    text-decoration: none;
+    color:white;
+}
+li a:link {
+    text-decoration: none;
+    color:white;
+}
+
 </style>
 </head>
 <body>
 
 <ul>
-  <li><a class="active" href="#home"<p style="color:red;"><p style="color:red;">ManGo Admin</p></a></li>
+  <li><a href="#home" style="background-color: green">ManGo Admin</a></li>
   <li><a href="product.php">เพิ่มสินค้า</a></li>
   <li><a href="category.php">หมวดหมู่สินค้า</a></li>
   <li><a href="brand.php">แบรนด์สินค้า</a></li>

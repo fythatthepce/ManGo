@@ -12,8 +12,16 @@ include "check-login.php";
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
-	@import "global.css";
+	@import "global-order.css";
+
+	table {
+		width: auto;
+		border-collapse: collapse;
+		margin: auto;
+		margin-top: 5px;
+	}
 	caption {
+		color: black;
 		text-align: left;
 		padding-bottom: 3px;
 	}
@@ -80,6 +88,7 @@ include "check-login.php";
 		resize: none;
 		overflow: auto;
 	}
+
 </style>
 <link href="js/jquery-ui.min.css" rel="stylesheet">
 <script src="js/jquery-2.1.1.min.js"> </script>

@@ -203,8 +203,7 @@ function uploadFile() {
   <?php
    include "topbar.php";
   ?>
-<br>
-<br>
+
 
 <?php
 $err = "";
@@ -323,6 +322,10 @@ if(!$_POST || $err != "") {
     			<div class="radio">
       				<label><img src="imgBank/TMB.jpg"style="width:40px;height:35px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ธ.ทหารไทย &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3712284607 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; สาขากรุงเทพ</label>
     			</div>
+          <hr>
+          <div class="radio">
+              <label><img src="imgBank/TheRealBank.png"style="width:40px;height:35px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Real Bank &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9176914644 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; สาขากรุงเทพ</label>
+          </div>
 			</form>
 		</div>
 	</div>

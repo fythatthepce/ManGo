@@ -15,11 +15,7 @@ session_start();
 	<script src="js/jquery-ui.min.js"> </script>
 	<script src="js/jquery.form.min.js"> </script>
 	<script src="js/jquery.blockUI.js"> </script>
-<title>ManGo</title>
-<link rel="shortcut icon" href="mangog.png">
-
-
-
+<title>Mango Store</title>
 <style>
 	@import "global-order.css";
 
@@ -28,14 +24,14 @@ session_start();
 		border-collapse: collapse;
 	}
 	tr:nth-of-type(odd) {
-		background: white;
+		background: #CFC;
 	}
 	tr:nth-of-type(even) {
 		background: #ddd;
 	}
 	tr:last-child td {
 		border-top: solid 1px white;
-		background: #FE86C2 !important;
+		background: powderblue !important;
 		padding: 5px;
 		font-weight: bold;
 		text-align: center;
@@ -47,8 +43,8 @@ session_start();
 
 	}
 	th {
-		background: black;
-		color: white;
+		background: green;
+		color: yellow;
 		padding: 5px;
 	}
 	td {
@@ -104,11 +100,7 @@ session_start();
 		text-align:center;
 		display: block;
 	}
-
-
 </style>
-
-
 <script src="js/jquery-2.1.1.min.js"> </script>
 <script>
 $(function() {
@@ -148,29 +140,20 @@ $(function() {
 });
 </script>
 </head>
-<body>
+<body style="background-color: #EEEEEE">
 	<?php
 	 include "dblink.php";
-	 include "topbar_ordercart.php";
+	 include "topbar.php";
 	?>
 	      <!-- end bar top-->
 
-				<br>
+			
 <div id="container">
-<h1 style="text-align: center;"><img src="images/basket-icon.png" class="logo2" style="width:70px;height:70px"><b><c  style="color:#333333;"> Your Bucket</c></b></h1>
-
-
-	<br>
-	<div class="progress">
-			<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-				 40% (รายการสินค้าในรถเข็น)
-	</div>
-
-	</div>
-
-
-
-<div id="content">
+<h1 style="text-align: center;"><img src="images/basket-icon.png" class="logo2" style="width:70px;height:70px"><b> Your Bucket</b></h1>
+<div style="border:1px solid #CCCCCC">
+	<div id="head" style="background-color: #CCCCCC"> <?php include "order-head.php"; ?> </div>
+	<div id="content" style="background-color: #EEEEEE">
+</div>
 <?php
 include "dblink.php";
 
@@ -248,21 +231,17 @@ $_SESSION['amount'] = number_format($grand_total);
 }		//end if (ถ้ามีสินค้าในรถเข็น)
 ?>
 </div>
-
-
+<div id="bottom" style="background-color: #CCCCCC">
+<button id="index">&laquo; หน้าแรก</button>
 <?php
 if($num_items > 0) {
-	echo '<br><button id="next" class="btn btn-danger">ขั้นตอนถัดไป</button>';
+	echo '<button id="next">ขั้นตอนถัดไป &raquo;</button>';
 }
 ?>
-
+</div>
 </div>
 
 <?php include "cartscript.php"; ?>
-
-
-
-
 </body>
 </html>
 <?php mysqli_close($link); ?>

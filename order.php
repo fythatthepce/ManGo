@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <title>ManGo</title>
 <link rel="shortcut icon" href="mangog.png">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
-	@import "global.css";
+	@import "global-order.css";
 	table {
 		margin: 20px auto;
 		border-collapse: collapse;
 	}
 	caption {
+		color:black;
 		text-align: left;
 		padding-bottom: 3px !important;
 	}
@@ -159,6 +161,7 @@ $(function() {
 
 <body>
 <?php include "top.php"; ?>
+<br>
 <article>
 <?php
 include "dblink.php";

@@ -4,8 +4,16 @@
 <meta charset="utf-8">
 <title>ManGo</title>
 <link rel="shortcut icon" href="mangog.png">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
-	@import "global.css";
+	@import "global-order.css";
+
+	table {
+		width: auto;
+		border-collapse: collapse;
+		margin: auto;
+		margin-top: 5px;
+	}
 	#form-search {
 		width: 750px;
 		margin: auto;
@@ -24,10 +32,8 @@
 	#form-search * {
 		margin-bottom: 3px;
 	}
-	table {
-		min-width: 840px;
-	}
 	caption {
+		color:black;
 		text-align: left;
 		padding-bottom: 2px;
 	}
@@ -63,13 +69,9 @@
 		vertical-align: top;
 		padding: 3px 0px 3px 5px;
 		border: solid 1px white;
-	}
-	td:first-child, td:first-child {
 		text-align: center;
 	}
-	td a:hover {
-		color: red;
-	}
+
 	p#pagenum {
 		width: 90%;
 		text-align: center;
@@ -211,14 +213,14 @@ if($total == 0) {
 <caption>
 <?php 	echo "ใบแจ้งลำดับที่  $first - $last จาก $total  ($field)"; ?>
 </caption>
-<colgroup><col id="c1"><col id="c2"><col id="c3"><col id="c4"></colgroup>
+<colgroup><col id="c1"><col id="c2"></colgroup>
 <?php
 include "lib/IMGallery/imgallery-no-jquery.php";
 $row = $first;
 while($pro = mysqli_fetch_array($result)) {
 ?>
 <tr>
-	<td><?php echo $row; ?></td>
+	<td style="padding-top:45px;"><?php echo $row; ?></td>
     <td>
  	 <?php
 		$sql = "SELECT * FROM images_pay WHERE imgpay_id = {$pro['imgpay_id']}";

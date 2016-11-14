@@ -7,9 +7,11 @@ include "check-login.php";
 
 <title>ManGo</title>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <link rel="shortcut icon" href="mangog.png">
 <style>
 	@import "global.css";
@@ -101,6 +103,8 @@ function ajaxSend(dataJSON) {
 	});
 }
 </script>
+
+
 </head>
 
 <body><?php include "top.php"; ?>
@@ -137,7 +141,7 @@ while($cust = mysqli_fetch_array($result)) {
     <td><?php echo $cust['phone']; ?></td>
     <td><a href="mailto:<?php echo $cust['email']; ?>"><?php echo $cust['email']; ?></a></td>
     <td>
-     		<button  type="button" class="btn btn-danger" data-id="<?php echo $cust['cust_id']; ?>">ลบ</button>
+     		<button class="del" data-id="<?php echo $cust['cust_id']; ?>">ลบ</button>
     </td>
 </tr>
 <?php

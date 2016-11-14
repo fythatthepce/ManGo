@@ -4,7 +4,6 @@ session_start();
 <!doctype html>
 <html>
 <head>
-<link rel="shortcut icon" href="mangowhite.png">
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,8 +14,7 @@ session_start();
   <script src="js/jquery-ui.min.js"> </script>
   <script src="js/jquery.form.min.js"> </script>
   <script src="js/jquery.blockUI.js"> </script>
-  <title>Mango</title>
-  <link rel="shortcut icon" href="mangog.png">
+  <title>Mango Store</title>
   <style>
 	input[type="submit"]{
 	/* change these properties to whatever you want */
@@ -25,11 +23,7 @@ session_start();
   	font-weight: bold;
 	}
  </style>
-
-
-
-
-<title>ManGo</title>
+<title>Online Store</title>
   <style>
       .jumbotron {
     margin-bottom: 0px;
@@ -100,14 +94,14 @@ session_start();
 		width: 100px;
 	}
 	table th {
-		background: black;
-		color: white;
+		background: green;
+		color: yellow;
 		padding: 5px;
 		border-right: solid 1px white;
 		font-size:12px;
 	}
 	tr:nth-of-type(odd) {
-		background: white;
+		background: lavender;
 	}
 	tr:nth-of-type(even) {
 		background: whitesmoke;
@@ -253,8 +247,10 @@ $(function() {
 </style>
 </head>
 <body>
-<?php include "topbar_ordercart.php"; ?>
 
+<?php
+ include "topbar.php";
+?>
 
 <?php
 include "dblink.php";
@@ -279,10 +275,9 @@ if($_POST['email']) {
 					FROM orders WHERE cust_id = '$cust_id' ORDER BY order_id DESC LIMIT 50";
 		$r = mysqli_query($link, $sql);
 		if(mysqli_num_rows($r) == 0) {
-      echo "<h3><p style=\"color:black\" font-size=\"300%\"><span class=\"glyphicon glyphicon-warning-sign\"></span></p></h3>";
-			echo "<h3><p style=\"color:red\">ไม่พบ</p></h3>";
+			echo "<h3>ไม่พบ</h3>";
 		}
-		echo "<h2><p style=\"color:black\">ประวัติการสั่งซื้อของคุณ : $name</p></h2>";
+		echo "<h3>ประวัติการสั่งซื้อของคุณ: $name</h3>";
 		while($data = mysqli_fetch_array($r)) {
 			$order_id = $data['order_id'];
 			$date =  $data['order_date'];
@@ -336,7 +331,7 @@ if($_POST['email']) {
 if(!$_POST || $err != "") {
 ?>
 
-
+<br><br><br>
 <div class="jumbotron" style="text-align: center">
       <h1 style="text-align: center"><font size="7">ประวัติการสั่งซื้อ</font></h1>
 </div>
@@ -344,13 +339,11 @@ if(!$_POST || $err != "") {
 <center>
 <div id="content">
 
-
-
 <form method="post"><br><?php echo $err; ?>
 	  <p><font color="black">กรุณาใส่อีเมลและรหัสผ่านที่ท่านใช้ในการสั่งซื้อสินค้า</font></p>
 	  <input type="email" name="email" placeholder="อีเมล *" required>
     <input type="password" name="pswd" placeholder="รหัสผ่าน *" maxlength="20" required>
-    <button type = "submit" class = "btn btn-default">ตกลง</button>
+    <button class="button" type="submit">ตกลง</button>
 </form>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -375,7 +368,7 @@ if(!$_POST || $err != "") {
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
-
+                        <a href="index2.php">&larr; กลับหน้าหลัก</a>
                     </li>
                 </ul>
             </div>
@@ -383,15 +376,6 @@ if(!$_POST || $err != "") {
     </div>
 </center>
 </div>
-
-<!--footer-->
-<?php
-    include "foot.php";
- ?>
-<!--end footer-->
-<?php include "cartscript.php"; ?>
-
-
 
 </body>
 </html>

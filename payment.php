@@ -7,9 +7,18 @@ include "check-login.php";
 <meta charset="utf-8">
 <title>ManGo</title>
 <link rel="shortcut icon" href="mangog.png">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style>
-	@import "global.css";
+	@import "global-order.css";
+
+	table {
+		width: auto;
+		border-collapse: collapse;
+		margin: auto;
+		margin-top: 5px;
+	}
 	caption {
+		color:black;
 		text-align: left;
 		padding-bottom: 3px !important;
 	}
@@ -235,7 +244,6 @@ while($pay = mysqli_fetch_array($result)) {
             		data-id="<?php echo $pay['pay_id']; ?>"
             		data-order="<?php echo $pay['order_id']; ?>"><p style="color:green;">ได้รับแล้ว</p></a>
      		<a href="#" class="delete" data-id="<?php echo $pay['pay_id']; ?>"><p style="color:red;">ลบรายการ</p></a>
-    
     </td>
 </tr>
 <?php

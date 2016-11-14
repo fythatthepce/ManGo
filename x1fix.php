@@ -160,10 +160,12 @@
 	}
 
 	div#pagenum {
-		width: 90%;
-		text-align: right;
-		margin-bottom: 20px;
+		width: 100%;
+		text-align: center;
+		margin-top: 60px;
+    margin-bottom: 20px;
     color: white;
+
 	}
 	div#dialog {
 		display: none;
@@ -904,6 +906,8 @@ $(document).ready(function () {
      }
 
       //echo "$Productname";
+
+
   		?>
   	</font>
 
@@ -961,9 +965,20 @@ $(document).ready(function () {
   ?>
   <br class="clear">
   <?php
-  	if(page_total() > 2) { 	 //ให้แสดงหมายเลขเพจเฉพาะเมื่อมีมากกว่า 1 เพจ
+  	if(page_total() > 0.1) { 	 //ให้แสดงหมายเลขเพจเฉพาะเมื่อมีมากกว่า 1 เพจ
   		echo '<div id="pagenum">';
-  		page_echo_pagenums();
+
+      page_link_border("solid", "2px", "white");
+      page_link_bg_color("white", "pink");
+      page_link_color("red");
+      page_cur_border("solid", "2px", "white");
+      page_cur_bg_color("red");
+      page_cur_color("white");
+      page_link_font("15px");
+
+
+      page_echo_pagenums(6, true);
+
   		echo '</div>';
   	}
   ?>

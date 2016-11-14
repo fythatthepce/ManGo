@@ -2,7 +2,6 @@
 session_start();
 ob_start();
 ?>
-<?php include "top.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,6 +31,7 @@ ob_start();
     </style>
 
   <body>
+    <?php include "top.php"; ?>
     <?php
       include "dblink.php";
 
@@ -73,7 +73,6 @@ ob_start();
       }
     ?>
 
-        <br><br>
         <div class="jumbotron" style="text-align: center">
           <h1 style="text-align: center"><font size="6">Delivery | ManGO</font></h1>
         </div>
