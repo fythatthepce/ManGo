@@ -2,7 +2,7 @@
 <html>
 <body>
 <?php
-
+//test
 	$data = array('username'=>'Mango','password'=>'mango','account_number'=>'9176914644');
 
 
