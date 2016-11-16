@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html>
 <body>
+
+
 <?php
-	//test
+	if($_POST){
+		if($_POST['username'] == 'Mango')
+		{
 
-	$data = array('username' =>'Mango','password'=>'mango','account_number' =>'9176914644');
-            
+			$data = array('username' =>'Mango','password'=>'mango','account_number' =>'9176914644');
+			$data_json = json_encode($data);
 
-            $url = "http://bank.route.in.th:9999/api/transferlogbusiness";
-            
-             $options = array(
-  			'http' => array(
-    		'method'  => 'POST',
-    		'content' => json_encode( $data ),
-    		'header'=>  "Content-Type: application/json\r\n" .
-              "Accept: application/json\r\n"
-   			 )
-			);
+			$url = "http://bank.route.in.th:9999/api/transferlogbusiness";
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
 
-			$context  = stream_context_create( $options );
-			$result = file_get_contents( $url, false, $context );
-			$response = json_decode( $result );
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($data_json)));
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+			curl_setopt($ch, CURLOPT_POSTFIELDS,$data_json);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      echo $response  = curl_exec($ch);
+		}
+  }
 ?>
 
 
-</body>
+<form method="post">
+		username: <input type="text" name="username"><br>
+		<input type="submit">
+</form>
 
+
+
+
+</body>
 </html>
