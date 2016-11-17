@@ -52,7 +52,7 @@ ob_start();
     ?>
     <!-- end bar top-->
 
-        
+
         <div class="jumbotron" style="text-align: center">
           <h1 style="text-align: center"><font size="6">SIGN IN | ManGO store</font></h1>
         </div>
@@ -85,7 +85,7 @@ ob_start();
                 </div>
                 <div class="col-md-6">
                     <h3>NOT HAVE ACCOUNT ?</h3>
-                    <h5>Creating an account is easy and only takes a few seconds! Having an account makes shopping at Firebox so much better:</h5>
+                    <h5>Creating an account is easy and only takes a few seconds! Having an account makes shopping at ManGO so much better:</h5>
                     <ul>
                         <li>Use our Express Checkout</li>
                         <li>Track the status of all your orders</li>
